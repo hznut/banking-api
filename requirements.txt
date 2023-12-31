@@ -1,0 +1,5 @@
+-r infrastructure/requirements.txt
+-r runtime/src/requirements.txt
+-r runtime/tests/requirements-dev.txt
+chalice
+chalice[cdk]

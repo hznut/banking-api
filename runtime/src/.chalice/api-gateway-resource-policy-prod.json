@@ -1,0 +1,24 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "execute-api:Invoke",
+            "Resource": [
+                "arn:aws:execute-api:*:*:*/prod/*/swagger_json",
+                "arn:aws:execute-api:*:*:*/prod/*/account_types",
+                "arn:aws:execute-api:*:*:*/prod/*/accounts",
+                "arn:aws:execute-api:*:*:*/prod/*/accounts/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": "*"
+            },
+            "Action": "execute-api:Invoke",
+            "Resource": "arn:aws:execute-api:*:*:*/prod/*/admin_access"
+        }
+    ]
+}

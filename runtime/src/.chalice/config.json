@@ -1,0 +1,27 @@
+{
+  "version": "2.0",
+  "app_name": "banking-api",
+  "api_gateway_endpoint_type": "REGIONAL",
+  "environment_variables": {
+    "APP_TABLE_REGION": "us-west-2",
+    "DYNAMO_ENDPOINT": "https://dynamodb.us-west-2.amazonaws.com",
+    "LOG_LEVEL": "DEBUG"
+  },
+  "stages": {
+    "prod": {
+      "api_gateway_stage": "prod",
+      "autogen_policy": true,
+      "iam_policy_file": "policy-prod.json",
+      "lambda_functions": {
+        "api_handler": {
+          "environment_variables": {
+            "APP_TABLE_NAME": "",
+            "APP_TABLE_REGION": "us-west-2",
+            "DYNAMO_ENDPOINT": "https://dynamodb.us-west-2.amazonaws.com",
+            "LOG_LEVEL": "DEBUG"
+	      }
+	    }
+      }
+    }
+  }
+}

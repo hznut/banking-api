@@ -1,0 +1,583 @@
+{
+	"info": {
+		"_postman_id": "f686c54d-58ca-4c5a-8abf-d18aadae3d76",
+		"name": "banking-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Acc1",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_type\": \"checking\",\n    \"initial_balance\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}/balance"
+					},
+					"response": []
+				},
+				{
+					"name": "List Accounts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts?limit=2",
+							"protocol": "https",
+							"host": [
+								"{{api_gw_id}}",
+								"execute-api",
+								"us-west-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"prod",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer Amount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"dest_account\": \"987654321012\",\n    \"dest_account_type\": \"checking\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}/transfers"
+					},
+					"response": []
+				},
+				{
+					"name": "Grant Admin Access to self",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/admin_access"
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Admin Access from self",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/admin_access"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "awsv4",
+				"awsv4": {
+					"secretKey": "{{acc1_aws_secret_key}}",
+					"accessKey": "{{acc1_aws_access_key}}",
+					"sessionToken": "",
+					"service": "execute-api",
+					"region": "us-west-2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Acc2",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_type\": \"checking\",\n    \"initial_balance\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}/balance"
+					},
+					"response": []
+				},
+				{
+					"name": "List Accounts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer Amount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"dest_account\": \"987654321012\",\n    \"dest_account_type\": \"checking\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}/transfers"
+					},
+					"response": []
+				},
+				{
+					"name": "Grant Admin Access to self",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/admin_access"
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Admin Access from self",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/admin_access"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "awsv4",
+				"awsv4": {
+					"accessKey": "{{acc2_aws_access_key}}",
+					"secretKey": "{{acc2_aws_secret_key}}",
+					"sessionToken": "",
+					"service": "execute-api",
+					"region": "us-west-2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Acc3",
+			"item": [
+				{
+					"name": "Create Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_type\": \"checking\",\n    \"initial_balance\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Account Balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}/balance"
+					},
+					"response": []
+				},
+				{
+					"name": "List Accounts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Account",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Transfer Amount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"dest_account\": \"987654321012\",\n    \"dest_account_type\": \"checking\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/accounts/{{account_type}}/transfers"
+					},
+					"response": []
+				},
+				{
+					"name": "Grant Admin Access to self",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/admin_access"
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Admin Access from self",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/admin_access"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "awsv4",
+				"awsv4": {
+					"secretKey": "{{acc3_aws_secret_key}}",
+					"accessKey": "{{acc3_aws_access_key}}",
+					"sessionToken": "",
+					"service": "execute-api",
+					"region": "us-west-2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Account Types",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/account_types"
+			},
+			"response": []
+		},
+		{
+			"name": "API Docs",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://{{api_gw_id}}.execute-api.us-west-2.amazonaws.com/prod/docs"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "awsv4",
+		"awsv4": {
+			"secretKey": "{{aws_secret_key}}",
+			"accessKey": "{{aws_access_key}}",
+			"sessionToken": "",
+			"service": "execute-api",
+			"region": "us-west-2"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_gw_id",
+			"value": "jyc6olq07h"
+		},
+		{
+			"key": "account_type",
+			"value": "checking"
+		},
+		{
+			"key": "acc1_aws_access_key",
+			"value": ""
+		},
+		{
+			"key": "acc1_aws_secret_key",
+			"value": ""
+		},
+		{
+			"key": "acc2_aws_access_key",
+			"value": ""
+		},
+		{
+			"key": "acc2_aws_secret_key",
+			"value": ""
+		},
+		{
+			"key": "acc3_aws_access_key",
+			"value": ""
+		},
+		{
+			"key": "acc3_aws_secret_key",
+			"value": ""
+		}
+	]
+}
