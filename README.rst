@@ -99,13 +99,10 @@ tricky in the code. You are not required to document every line. Assume your rev
 what AWS APIs do.
 
 
-
-
-
-
-
 Quickstart
 ----------
+
+.. image:: docs/BankingAPI_DeploymentDiagram.jpeg
 
 **Pre-requisites:**
 
